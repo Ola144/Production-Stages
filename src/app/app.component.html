@@ -8,11 +8,10 @@
             <input
               type="text"
               placeholder="Enter New Idea"
-              class="w-full text-white py-2 px-2 border-2 border-white rounded-lg bg-transparent placeholder:text-white"
-              [class]="
+              [ngClass]="
                 ideaField.touched && ideaField.invalid
-                  ? 'border-2 border-red-400'
-                  : ''
+                  ? 'border-2 border-red-400 w-full text-white py-2 px-2 rounded-lg bg-transparent placeholder:text-white'
+                  : 'w-full text-white py-2 px-2 border-2 border-white rounded-lg bg-transparent placeholder:text-white '
               "
               [(ngModel)]="newIdea"
               name="ideaField"
@@ -28,11 +27,10 @@
             }
           </div>
           <button
-            class="bg-white text-purple-700 w-fit py-2 px-4 rounded-lg"
-            [class]="
+            [ngClass]="
               ideaForm.invalid
-                ? 'bg-gray-300 hover:bg-gray-300 cursor-not-allowed'
-                : 'hover:bg-white/95 cursor-pointer'
+                ? 'w-fit py-2 px-4 rounded-lg bg-gray-300 hover:bg-gray-300 cursor-not-allowed text-purple-700'
+                : 'hover:bg-white/95 bg-white cursor-pointerbg-white text-purple-700 w-fit py-2 px-4 rounded-lg'
             "
             (click)="addNewItem()"
             [disabled]="ideaForm.invalid"
