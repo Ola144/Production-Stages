@@ -1,4 +1,36 @@
-# ProductionStages
+# Production Stages App (Angular)
+
+## A simple Angular application showcasing four stages of production:
+
+- Idea
+
+- Prototype
+
+- Development
+
+- Ship
+
+Users can add items to the Idea stage and move them step by step until they are shipped.
+
+Features
+
+- Add tasks to the Idea stage through a text input.
+
+- Move items forward between stages by single click and move items backward by double click on them.
+
+- Responsive design for desktop and mobile.
+
+- Code structured following Angular best practices.
+
+Tech Stack
+
+- Angular v18
+
+- TypeScript
+
+- Taliwind CSS
+
+- Angular CLI
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.20.
 

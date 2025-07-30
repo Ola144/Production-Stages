@@ -1,21 +1,47 @@
-<div class="w-full h-screen bg-purple-500 p-3">
+<div class="w-full h-screen bg-purple-400 p-3">
   <h1 class="text-center text-white font-bold text-3xl">Production Stages</h1>
   <div class="w-full">
     <div class="w-full my-2 mx-auto">
-      <div class="flex justify-center items-center gap-2 w-96 mx-auto">
-        <input
-          type="text"
-          placeholder="Enter Idea"
-          class="w-full text-white py-2 px-2 border-2 border-white rounded-lg bg-transparent placeholder:text-white"
-          [(ngModel)]="newItem"
-        />
-        <button
-          class="bg-white hover:bg-white/95 text-purple-700 w-fit py-2 px-4 rounded-lg"
-          (click)="addNewItem()"
-        >
-          Add
-        </button>
-      </div>
+      <form #ideaForm="ngForm">
+        <div class="flex justify-center items-start gap-2 h-fit w-96 mx-auto">
+          <div class="w-full">
+            <input
+              type="text"
+              placeholder="Enter New Idea"
+              class="w-full text-white py-2 px-2 border-2 border-white rounded-lg bg-transparent placeholder:text-white"
+              [class]="
+                ideaField.touched && ideaField.invalid
+                  ? 'border-2 border-red-400'
+                  : ''
+              "
+              [(ngModel)]="newIdea"
+              name="ideaField"
+              #ideaField="ngModel"
+              required
+            />
+            @if (ideaField.touched && ideaField.invalid) {
+            <div class="text-red-400 text-sm">
+              @if (ideaField.errors?.['required']) {
+              <span>*Idea is a required field!</span>
+              }
+            </div>
+            }
+          </div>
+          <button
+            class="bg-white text-purple-700 w-fit py-2 px-4 rounded-lg"
+            [class]="
+              ideaForm.invalid
+                ? 'bg-gray-300 hover:bg-gray-300 cursor-not-allowed'
+                : 'hover:bg-white/95 cursor-pointer'
+            "
+            (click)="addNewItem()"
+            [disabled]="ideaForm.invalid"
+          >
+            Add
+          </button>
+        </div>
+      </form>
+
       <div class="flex justify-center items-center w-full mx-auto">
         <div
           class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 sm:gap-10 gap-5 px-10 my-7 lg:w-fit md:w-fit mx-auto w-fit"

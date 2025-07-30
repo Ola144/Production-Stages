@@ -9,7 +9,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  newItem: string = '';
+  newIdea: string = '';
 
   idea: string[] = [];
   prototype: string[] = [];
@@ -19,9 +19,8 @@ export class AppComponent {
   clickTimeout: any;
 
   addNewItem() {
-    this.idea.push(this.newItem);
-    console.log(this.idea);
-    this.newItem = '';
+    this.idea.push(this.newIdea);
+    this.newIdea = '';
   }
 
   movingFoward(stage: string, index: number) {
